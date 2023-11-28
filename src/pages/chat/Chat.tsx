@@ -38,7 +38,7 @@ export const Chat = () => {
         }
     }
 
-    const onChangeHandler = (e: React.ChangeEventHandler<HTMLInputElement>) => {
+    const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         // @ts-ignore
         setInputField(e.target.value);
     }

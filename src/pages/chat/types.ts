@@ -1,7 +1,4 @@
-export interface IMessage {
-    "content": string,
-    "role": "system" | "assistant"
-}
+
 export interface IChatList {
     messages: IMessage[];
 }
@@ -15,11 +12,14 @@ export interface IGptResponse {
     choices: IChoice[]
     usage: IUsage
 }
-
+export interface IMessage {
+    "content": string,
+    "role": "system" | "assistant"
+}
 export interface IChoice {
     index: number
     message: IMessage
-    finish_reason: string
+    finish_reason: string | null
 }
 
 export interface IUsage {
