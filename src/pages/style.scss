@@ -1,0 +1,23 @@
+.my-message {
+  background-color: #e6f7ff; /* Цвет фона вашего сообщения */
+  color: #004080; /* Цвет текста вашего сообщения */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.other-person-message {
+  background-color: #f0f0f0; /* Цвет фона сообщений собеседника */
+  color: #333; /* Цвет текста сообщений собеседника */
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.container {
+  width: 1000px;
+}
+
+.chat{
+  text-align: left;
+}

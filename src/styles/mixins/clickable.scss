@@ -1,0 +1,10 @@
+@mixin clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+//Use it
+//.btn {
+//  @include customStyles;
+//  // Дополнительные стили для .btn
+//}
