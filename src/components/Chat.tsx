@@ -1,22 +1,36 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Button, Input} from "antd";
+import {Avatar, Button, Input, List} from "antd";
+import {FaArrowUp} from "react-icons/fa";
 const apiKey = import.meta.env.VITE_API_KEY
 
 interface IChat {
     author: string,
-    text: string
+    text: string,
+    counter: number
 }
 export const Chat = () => {
     const [inputField, setInputField] = useState<string>("")
     const [gptResponse, setGptResponse] = useState<string>('')
-    const [chat, setChat] = useState<IChat[]>([])
+    const [chat, setChat] = useState<IChat[]>([
+        {
+            "author": "You",
+            "text": "Привет",
+            "counter": 0
+        },
+        {
+            "author": "ChatGPT",
+            "text": "!\n\nЯ еще только начал осваивать работу с вирту",
+            "counter": 0
+        }
+    ])
     const [counter, setCounter] = useState(0);
 
     const sendToGpt = async () => {
+        if(!inputField.trim().length) return
         // @ts-ignore
         setChat((prev)=> {
-            return [...prev, {author: 'I', text: inputField, counter}]
+            return [...prev, {author: 'You', text: inputField, counter}]
         })
         setInputField('')
         try {
@@ -36,7 +50,7 @@ export const Chat = () => {
             const res = response.data.choices[0].text.trim()
             setGptResponse(res)
             // @ts-ignore
-            setChat((prev)=> [...prev, {author: 'Gpt', text: res, counter}])
+            setChat((prev)=> [...prev, {author: 'ChatGPT', text: res, counter}])
             setCounter((prev)=> prev+1)
             console.log(response.data.choices[0].text.trim());
         } catch (error) {
@@ -49,26 +63,26 @@ export const Chat = () => {
         setInputField(e.target.value);
     }
 
-    useEffect(() => {
-        window.addEventListener('keyup', sendToGpt);
-        return () => {
-            window.removeEventListener('keyup', sendToGpt);
-        };
-    }, []);
+    console.log("chat", chat);
 
     return (
         <div className={'container'}>
-            <Input value={inputField} onChange={onChangeHandler} placeholder="Enter text" />
-            <Button onClick={sendToGpt} type="primary">Send</Button>
-            <div>{gptResponse}</div>
+        <div className={'chat-wrapper'}>
+            <div className="main-input">
+                <Input className={'input'} value={inputField} onChange={onChangeHandler} size="large" placeholder="Enter text" />
+                <Button className='btn' size={"small"}  onClick={sendToGpt} type="default"> <FaArrowUp/> </Button>
+            </div>
             {chat.map((item, idx)=> {
                 return(
-                    <div className={item.author === "I" ? "my-message" : 'other-person-message'} key={idx}>
-                        <span>{item.author}</span>
-                        <span>{item.text}</span>
+                    <div className='message'>
+                        <div className={'avatar'} >{item.author}</div>
+                        <div className={item.author === "I" ? "my-message" : 'other-person-message'} key={idx}>
+                            <div className={'text'}>{item.text}</div>
+                        </div>
                     </div>
                 )
             })}
         </div>
+      </div>
     );
 };

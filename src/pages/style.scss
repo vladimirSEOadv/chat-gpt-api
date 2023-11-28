@@ -1,23 +1,55 @@
+.chat-wrapper {
+  align-items: center;
+  padding-top: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.main-input{
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.message{
+  margin-bottom: 15px;
+}
+
 .my-message {
-  background-color: #e6f7ff; /* Цвет фона вашего сообщения */
-  color: #004080; /* Цвет текста вашего сообщения */
+  background-color: #e6f7ff;
+  color: #004080;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 5px;
 }
 
 .other-person-message {
-  background-color: #f0f0f0; /* Цвет фона сообщений собеседника */
-  color: #333; /* Цвет текста сообщений собеседника */
+  background-color: #f0f0f0;
+  color: #333;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 5px;
 }
 
-.container {
-  width: 1000px;
+.avatar {
+  border-radius: 15px;
+  width: fit-content;
 }
 
-.chat{
-  text-align: left;
+.text{
+  display: flex;
+  align-items: start;
+  padding: 5px;
+}
+
+.btn {
+  color: aliceblue;
+  background: black;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+
+.input{
+  margin-right: 45px;
 }
