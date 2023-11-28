@@ -15,15 +15,15 @@
 }
 
 .my-message {
-  background-color: #e6f7ff;
+  background-color: rgba(198, 229, 135, 0.44);
   color: #004080;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 5px;
 }
 
-.other-person-message {
-  background-color: #f0f0f0;
+.gpt-message {
+  background-color: rgba(126, 140, 217, 0.29);
   color: #333;
   padding: 10px;
   border-radius: 8px;
@@ -31,14 +31,13 @@
 }
 
 .avatar {
-  border-radius: 15px;
+  border-radius: 14px;
   width: fit-content;
 }
 
 .text{
-  display: flex;
-  align-items: start;
-  padding: 5px;
+  text-align: start;
+  padding: 4px;
 }
 
 .btn {
@@ -46,7 +45,7 @@
   background: black;
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 5px;
   transform: translateY(-50%);
 }
 

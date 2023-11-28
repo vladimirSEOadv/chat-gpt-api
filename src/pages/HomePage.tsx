@@ -1,6 +1,6 @@
 import React from "react";
 import './style.scss'
-import {Chat} from "@/components/Chat.tsx";
+import {Chat} from "@/pages/chat/Chat.tsx";
 
 
 export const HomePage = () => {
