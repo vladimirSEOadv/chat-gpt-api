@@ -2,7 +2,16 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Avatar, Button, Input, List} from "antd";
 import {FaArrowUp} from "react-icons/fa";
+
+import OpenAI from "openai";
+
 const apiKey = import.meta.env.VITE_API_KEY
+
+const openai = new OpenAI({
+    apiKey,
+    dangerouslyAllowBrowser: true
+});
+
 
 interface IChat {
     author: string,
@@ -34,20 +43,20 @@ export const Chat = () => {
         })
         setInputField('')
         try {
-            const response = await axios.post(
-                'https://api.openai.com/v1/engines/text-davinci-003/completions',
-                {
-                    prompt: inputField,
-                    max_tokens: 50
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`
-                    }
-                }
-            );
-            const res = response.data.choices[0].text.trim()
+            const response = await openai.chat.completions.create({
+                model: "gpt-3.5-turbo",
+                messages: [{content: inputField, role: 'system'}],
+                temperature: 0,
+                max_tokens: 2048,
+            });
+
+            console.log("response", response)
+
+            // @ts-ignore
+            const res = response.choices.reduce((acc, current)=> {
+                acc= `${acc} ${current.message.content}`
+                return acc
+            },"")
             setGptResponse(res)
             // @ts-ignore
             setChat((prev)=> [...prev, {author: 'ChatGPT', text: res, counter}])
