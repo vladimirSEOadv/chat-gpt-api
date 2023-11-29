@@ -1,0 +1,50 @@
+.chat-wrapper {
+  align-items: center;
+  max-width: 600px;
+  margin: 40px auto 10px;
+  min-height: 85vh;
+}
+
+.main-input{
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.btn {
+  color: aliceblue;
+  background: black;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+}
+
+.input{
+}
+
+.user-form-btn {
+  width: fit-content;
+  position: sticky;
+  bottom: 30px;
+  left: 86%;
+}
+
+
+
+
+
+
+
+
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(217,217,227,.8)
+}
+
+.user-form__close-btn{
+
+}

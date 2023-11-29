@@ -1,10 +1,12 @@
 import React from "react";
-import './style.scss'
-import {Chat} from "@/pages/chat/Chat.tsx";
+import './ChatWithFullResponse.module.scss'
+import {ChatWithFullResponse} from "@/pages/chatWithFullResponse/ChatWithFullResponse.tsx";
 
 
 export const HomePage = () => {
     return (
-        <Chat/>
+        <>
+            <ChatWithFullResponse/>
+        </>
     )
 };

@@ -1,0 +1,20 @@
+.user-form {
+  position: absolute;
+  width: 100%;
+  max-width: 600px;
+  top: 50%;
+  left: 50%;
+  padding: 20px 20px 0 20px;
+  margin: 0 15px;
+  transform: translate(-50%, -50%);
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.user-form__footer{
+  text-align: end;
+}
+
+.user-form__close-btn {
+  margin-right: 10px;
+}

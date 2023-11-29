@@ -1,6 +1,6 @@
 import React, {FC} from "react";
-import {IChatList} from "@/pages/chat/types.ts";
-import {FormattedText} from "@/pages/chat/components/FormatedText.tsx";
+import {IChatList} from "@/pages/chatWithFullResponse/types.ts";
+import {FormattedText} from "@/pages/chatWithChunksResponse/components/FormatedText.tsx";
 
 export const ChatList: FC<IChatList> = ({messages}) => {
     return messages.map((item, idx) => {
